@@ -19,3 +19,12 @@ def compute_ear(landmarks, width, height, left_eye_idx, right_eye_idx):
     leftEAR = eye_aspect_ratio(left_eye)
     rightEAR = eye_aspect_ratio(right_eye)
     return (leftEAR + rightEAR) / 2.0
+
+def PERCLOS(eye_points, total_frames):
+    """
+    eye_points: list of EAR values for each frame
+    total_frames: total number of frames analyzed
+    """
+    closed_eyes_frames = sum(1 for ear in eye_points if ear < 0.20)  # threshold can be adjusted
+    perclos = (closed_eyes_frames / total_frames) * 100
+    return perclos
