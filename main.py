@@ -1,16 +1,54 @@
-# This is a sample Python script.
+import cv2 as cv
+import numpy as np
+import mediapipe as mp
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Initialize MediaPipe Face Mesh
+mp_face_mesh = mp.solutions.face_mesh
+mp_drawing = mp.solutions.drawing_utils
 
+# Landmark indices
+LEFT_EYE = [362, 385, 387, 263, 373, 380]
+RIGHT_EYE = [33, 160, 158, 133, 153, 144]
+MOUTH = [61, 81, 13, 311, 308, 402, 14, 178]
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    cap = cv.VideoCapture(0)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    with mp_face_mesh.FaceMesh(
+        max_num_faces=1,
+        refine_landmarks=True,
+        min_detection_confidence=0.5,
+        min_tracking_confidence=0.5
+    ) as face_mesh:
+
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+
+            rgb_frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+            results = face_mesh.process(rgb_frame)
+
+            if results.multi_face_landmarks:
+                landmarks = results.multi_face_landmarks[0].landmark
+                h, w, _ = frame.shape
+
+                # Draw eye points
+                for idx in LEFT_EYE + RIGHT_EYE:
+                    x = int(landmarks[idx].x * w)
+                    y = int(landmarks[idx].y * h)
+                    cv.circle(frame, (x, y), 2, (0, 255, 0), -1)
+
+                # Draw mouth points
+                for idx in MOUTH:
+                    x = int(landmarks[idx].x * w)
+                    y = int(landmarks[idx].y * h)
+                    cv.circle(frame, (x, y), 2, (255, 0, 0), -1)
+
+            cv.imshow('Camera', frame)
+
+            if cv.waitKey(1) & 0xFF == ord('q'):
+                break
+
+    cap.release()
+    cv.destroyAllWindows()
