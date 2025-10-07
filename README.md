@@ -8,7 +8,8 @@ A real-time drowsiness detection demo using computer vision to monitor eye blink
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/mringsby/Drowsy-Driver.git```
+   git clone https://github.com/mringsby/Drowsy-Driver.git
+   ```
 
 2. Install dependencies:
    ```bash
