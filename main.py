@@ -1,9 +1,9 @@
 import cv2 as cv
 import numpy as np
 import mediapipe as mp
-from eye_detection import compute_ear
+from eye_detection import compute_ear, PERCLOS
 from yawn_detection import compute_mar
-from eye_detection import PERCLOS
+from drowsiness import DrowsinessDetector
 import collections
 
 
@@ -20,7 +20,7 @@ MOUTH = [61, 81, 13, 311, 308, 402, 14, 178]
 EAR_THRESHOLD = 0.20
 CONSEC_FRAMES = 15
 
-EAR_HISTORY_SIZE = 150  # Number of frames to keep in history for PERCLOS
+EAR_HISTORY_SIZE = 1800  # Number of frames to keep in history for PERCLOS 60 seconds at 30 FPS
 ear_history = collections.deque(maxlen=EAR_HISTORY_SIZE)
 
 # Blink threshold
@@ -29,14 +29,13 @@ BLINK_RESET_THRESHOLD = 0.19
 
 # MAR thresholds
 MAR_THRESHOLD = 0.60
+YAWN_CONSEC_FRAMES = 30
 
 if __name__ == '__main__':
     cap = cv.VideoCapture(0)
     cap.set(cv.CAP_PROP_FPS, 30)
-    eye_closed_counter = 0
-    blink_counter = 0
-    blink_reset = True
-    maximum_closure_duration = 0
+
+    drowsiness_detector = DrowsinessDetector(EAR_THRESHOLD, CONSEC_FRAMES, BLINK_THRESHOLD, BLINK_RESET_THRESHOLD, MAR_THRESHOLD, YAWN_CONSEC_FRAMES)
 
     with mp_face_mesh.FaceMesh(
         max_num_faces=1,
@@ -72,48 +71,43 @@ if __name__ == '__main__':
                 # EAR from imported function
                 ear = compute_ear(landmarks, w, h, LEFT_EYE, RIGHT_EYE)
 
-                # Drowsiness logic
-                if ear < EAR_THRESHOLD:
-                    eye_closed_counter += 1
-                    if eye_closed_counter >= CONSEC_FRAMES:
-                        cv.putText(frame, "WARNING: Eyes Closed!", (30, 60),
-                                   cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 3)
-                    if ear < BLINK_THRESHOLD and blink_reset:
-                        blink_counter += 1
-                        blink_reset = False
-                    if ear >= BLINK_RESET_THRESHOLD:
-                        blink_reset = True
-                else:
-                    if eye_closed_counter/30 > maximum_closure_duration:
-                        maximum_closure_duration = eye_closed_counter/30
-                        print(f"New max eye closure duration: {maximum_closure_duration:.2f} seconds")
-                    eye_closed_counter = 0
-                    blink_reset = True
-
-                cv.putText(frame, f"EAR: {ear:.2f}", (30, 30),
-                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-
-                cv.putText(frame, f"Blinks: {blink_counter}", (30, 70),
-                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-
                 # MAR calculation
                 mar = compute_mar(landmarks, w, h, MOUTH)
 
-                # Yawn detection logic
-                MAR_THRESHOLD = 0.60  # tweak this experimentally
+                ear_history.append(ear)
+
+                # Calculate PERCLOS
+                perclos = 0
+                if len(ear_history) == EAR_HISTORY_SIZE:
+                    perclos = PERCLOS(ear_history, EAR_HISTORY_SIZE)
+
+                # Drowsiness logic
+                drowsiness_detector.calculate_drowsy_lvl(ear, mar, perclos)
+
+                # Show EAR value
+                cv.putText(frame, f"EAR: {ear:.2f}", (30, 30),
+                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+
+                # show blink count
+                cv.putText(frame, f"Blinks: {drowsiness_detector.get_blink_count()}", (30, 70),
+                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+
+                # Warning for yawning
                 if mar > MAR_THRESHOLD:
-                    cv.putText(frame, "YAWN DETECTED!", (30, 100),
+                    cv.putText(frame, "YAWN DETECTED!", (200, 30),
                                cv.FONT_HERSHEY_SIMPLEX, 1.0, (255, 0, 0), 3)
 
                 # Show MAR value
                 cv.putText(frame, f"MAR: {mar:.2f}", (30, 110),
                            cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
-                ear_history.append(ear)
+                # show yawn count
+                cv.putText(frame, f"Yawns: {drowsiness_detector.get_yawn_count()}", (30, 150),
+                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
+                # show PERCLOS only if we have enough history
                 if len(ear_history) == EAR_HISTORY_SIZE:
-                    perclos = PERCLOS(ear_history, EAR_HISTORY_SIZE)
-                    cv.putText(frame, f"PERCLOS: {perclos:.2f}%", (30, 130),
+                    cv.putText(frame, f"PERCLOS: {perclos:.2f}%", (30, 190),
                                cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
 
             # only ONE imshow + waitKey
