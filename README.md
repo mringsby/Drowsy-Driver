@@ -27,6 +27,7 @@ In git bash do the following.
    ```bash
    pip install -r requirements.txt
    ```
+   Disclaimer: This may not work, and if not you will have to install Mediapipe and Opencv-python manually in the package manager, or other. 
 
 5. Run the demo:
    Open project in preferred IDE and run with python 3.11 with the correct packages found in requirements.txt. Make sure to be in 1st-Release branch!
