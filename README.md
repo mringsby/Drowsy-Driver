@@ -6,12 +6,16 @@ A real-time drowsiness detection demo using computer vision to monitor eye blink
 
 ### **Python 3.11 required**
 
-1. Install dependencies:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mringsby/Drowsy-Driver.git```
+
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Run the demo:
+3. Run the demo:
    ```bash
    python main.py
    ```
