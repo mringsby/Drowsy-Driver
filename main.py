@@ -3,6 +3,8 @@ import numpy as np
 import mediapipe as mp
 from eye_detection import compute_ear
 from yawn_detection import compute_mar
+from eye_detection import PERCLOS
+import collections
 
 
 # Initialize MediaPipe Face Mesh
@@ -17,6 +19,9 @@ MOUTH = [61, 81, 13, 311, 308, 402, 14, 178]
 # EAR thresholds
 EAR_THRESHOLD = 0.20
 CONSEC_FRAMES = 15
+
+EAR_HISTORY_SIZE = 150  # Number of frames to keep in history for PERCLOS
+ear_history = collections.deque(maxlen=EAR_HISTORY_SIZE)
 
 # Blink threshold
 BLINK_THRESHOLD = 0.17
@@ -95,6 +100,7 @@ if __name__ == '__main__':
                 mar = compute_mar(landmarks, w, h, MOUTH)
 
                 # Yawn detection logic
+                MAR_THRESHOLD = 0.60  # tweak this experimentally
                 if mar > MAR_THRESHOLD:
                     cv.putText(frame, "YAWN DETECTED!", (30, 100),
                                cv.FONT_HERSHEY_SIMPLEX, 1.0, (255, 0, 0), 3)
@@ -102,6 +108,13 @@ if __name__ == '__main__':
                 # Show MAR value
                 cv.putText(frame, f"MAR: {mar:.2f}", (30, 110),
                            cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+
+                ear_history.append(ear)
+
+                if len(ear_history) == EAR_HISTORY_SIZE:
+                    perclos = PERCLOS(ear_history, EAR_HISTORY_SIZE)
+                    cv.putText(frame, f"PERCLOS: {perclos:.2f}%", (30, 130),
+                               cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
 
             # only ONE imshow + waitKey
             cv.imshow("Camera", frame)
