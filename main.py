@@ -18,9 +18,20 @@ MOUTH = [61, 81, 13, 311, 308, 402, 14, 178]
 EAR_THRESHOLD = 0.20
 CONSEC_FRAMES = 15
 
+# Blink threshold
+BLINK_THRESHOLD = 0.17
+BLINK_RESET_THRESHOLD = 0.19
+
+# MAR thresholds
+MAR_THRESHOLD = 0.60
+
 if __name__ == '__main__':
     cap = cv.VideoCapture(0)
-    frame_counter = 0
+    cap.set(cv.CAP_PROP_FPS, 30)
+    eye_closed_counter = 0
+    blink_counter = 0
+    blink_reset = True
+    maximum_closure_duration = 0
 
     with mp_face_mesh.FaceMesh(
         max_num_faces=1,
@@ -58,26 +69,38 @@ if __name__ == '__main__':
 
                 # Drowsiness logic
                 if ear < EAR_THRESHOLD:
-                    frame_counter += 1
-                    if frame_counter >= CONSEC_FRAMES:
+                    eye_closed_counter += 1
+                    if eye_closed_counter >= CONSEC_FRAMES:
                         cv.putText(frame, "WARNING: Eyes Closed!", (30, 60),
                                    cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 3)
+                    if ear < BLINK_THRESHOLD and blink_reset:
+                        blink_counter += 1
+                        blink_reset = False
+                    if ear >= BLINK_RESET_THRESHOLD:
+                        blink_reset = True
                 else:
-                    frame_counter = 0
+                    if eye_closed_counter/30 > maximum_closure_duration:
+                        maximum_closure_duration = eye_closed_counter/30
+                        print(f"New max eye closure duration: {maximum_closure_duration:.2f} seconds")
+                    eye_closed_counter = 0
+                    blink_reset = True
 
                 cv.putText(frame, f"EAR: {ear:.2f}", (30, 30),
                            cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+
+                cv.putText(frame, f"Blinks: {blink_counter}", (30, 70),
+                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+
                 # MAR calculation
                 mar = compute_mar(landmarks, w, h, MOUTH)
 
                 # Yawn detection logic
-                MAR_THRESHOLD = 0.60  # tweak this experimentally
                 if mar > MAR_THRESHOLD:
                     cv.putText(frame, "YAWN DETECTED!", (30, 100),
                                cv.FONT_HERSHEY_SIMPLEX, 1.0, (255, 0, 0), 3)
 
                 # Show MAR value
-                cv.putText(frame, f"MAR: {mar:.2f}", (30, 70),
+                cv.putText(frame, f"MAR: {mar:.2f}", (30, 110),
                            cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
             # only ONE imshow + waitKey
