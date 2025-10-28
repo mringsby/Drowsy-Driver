@@ -103,11 +103,11 @@ class DrowsinessDetector:
 
         if self.TMP_DROWSY_LVL < 2:
             self.LVL_HELPER = 0
-            if self.blink_frequency <= BPM_2:
+            if self.blink_frequency > BPM_2:
                 self.LVL_HELPER += 1
             if PERCLOS_L_2 < perclos <= PERCLOS_H_2:
                 self.LVL_HELPER += 1
-            if self.LVL_HELPER == 2:
+            if self.LVL_HELPER <= 2:
                 self.TMP_DROWSY_LVL = 2
 
         if self.TMP_DROWSY_LVL < 1:
@@ -116,7 +116,7 @@ class DrowsinessDetector:
                 self.LVL_HELPER += 1
             if perclos <= PERCLOS_1:
                 self.LVL_HELPER += 1
-            if self.LVL_HELPER == 2:
+            if self.LVL_HELPER <= 2:
                 self.TMP_DROWSY_LVL = 1
 
         self.drowsy_lvl = self.TMP_DROWSY_LVL
