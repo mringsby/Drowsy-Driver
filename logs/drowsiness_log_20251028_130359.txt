@@ -1,0 +1,49 @@
+[2025-10-28 13:03:39] EAR changed to 0.27
+[2025-10-28 13:03:39] MAR changed to 0.00
+[2025-10-28 13:03:39] EAR changed to 0.15
+[2025-10-28 13:03:39] Blink Count changed to 1
+[2025-10-28 13:03:39] EAR changed to 0.26
+[2025-10-28 13:03:42] MAR changed to 0.11
+[2025-10-28 13:03:42] MAR changed to 0.27
+[2025-10-28 13:03:42] MAR changed to 0.39
+[2025-10-28 13:03:42] MAR changed to 0.55
+[2025-10-28 13:03:42] MAR changed to 0.66
+[2025-10-28 13:03:43] MAR changed to 0.54
+[2025-10-28 13:03:43] MAR changed to 0.40
+[2025-10-28 13:03:43] MAR changed to 0.24
+[2025-10-28 13:03:43] MAR changed to 0.10
+[2025-10-28 13:03:43] MAR changed to 0.00
+[2025-10-28 13:03:49] EAR changed to 0.16
+[2025-10-28 13:03:49] Blink Count changed to 2
+[2025-10-28 13:03:50] EAR changed to 0.26
+[2025-10-28 13:03:51] MAR changed to 0.33
+[2025-10-28 13:03:51] MAR changed to 0.59
+[2025-10-28 13:03:52] MAR changed to 0.81
+[2025-10-28 13:03:52] MAR changed to 1.00
+[2025-10-28 13:03:52] MAR changed to 1.12
+[2025-10-28 13:03:52] MAR changed to 1.33
+[2025-10-28 13:03:52] MAR changed to 1.06
+[2025-10-28 13:03:52] MAR changed to 0.75
+[2025-10-28 13:03:52] MAR changed to 0.44
+[2025-10-28 13:03:52] MAR changed to 0.27
+[2025-10-28 13:03:52] MAR changed to 0.11
+[2025-10-28 13:03:52] MAR changed to 0.00
+[2025-10-28 13:03:53] MAR changed to 0.51
+[2025-10-28 13:03:53] MAR changed to 0.73
+[2025-10-28 13:03:53] MAR changed to 0.87
+[2025-10-28 13:03:54] MAR changed to 1.01
+[2025-10-28 13:03:54] MAR changed to 0.91
+[2025-10-28 13:03:54] Yawn Count changed to 1
+[2025-10-28 13:03:54] MAR changed to 0.79
+[2025-10-28 13:03:55] EAR changed to 0.16
+[2025-10-28 13:03:55] Blink Count changed to 3
+[2025-10-28 13:03:55] MAR changed to 0.69
+[2025-10-28 13:03:55] MAR changed to 0.56
+[2025-10-28 13:03:55] MAR changed to 0.38
+[2025-10-28 13:03:55] MAR changed to 0.27
+[2025-10-28 13:03:55] MAR changed to 0.16
+[2025-10-28 13:03:55] EAR changed to 0.26
+[2025-10-28 13:03:55] MAR changed to 0.02
+[2025-10-28 13:03:57] EAR changed to 0.14
+[2025-10-28 13:03:57] Blink Count changed to 4
+[2025-10-28 13:03:57] EAR changed to 0.25

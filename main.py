@@ -5,6 +5,8 @@ from eye_detection import compute_ear, PERCLOS
 from yawn_detection import compute_mar
 from drowsiness import DrowsinessDetector
 import collections
+from log import log_change, save_logs_to_file, get_previous_values
+import sys
 
 
 # Initialize MediaPipe Face Mesh
@@ -31,89 +33,150 @@ BLINK_RESET_THRESHOLD = 0.19
 MAR_THRESHOLD = 0.60
 YAWN_CONSEC_FRAMES = 30
 
+previous_values = get_previous_values()
+
+max_closure_duration = 0.0
+current_closure_start = None
+
 if __name__ == '__main__':
     cap = cv.VideoCapture(0)
     cap.set(cv.CAP_PROP_FPS, 30)
 
     drowsiness_detector = DrowsinessDetector(EAR_THRESHOLD, CONSEC_FRAMES, BLINK_THRESHOLD, BLINK_RESET_THRESHOLD, MAR_THRESHOLD, YAWN_CONSEC_FRAMES)
 
-    with mp_face_mesh.FaceMesh(
-        max_num_faces=1,
-        refine_landmarks=True,
-        min_detection_confidence=0.5,
-        min_tracking_confidence=0.5
-    ) as face_mesh:
+    try:
+        with mp_face_mesh.FaceMesh(
+                max_num_faces=1,
+                refine_landmarks=True,
+                min_detection_confidence=0.5,
+                min_tracking_confidence=0.5
+        ) as face_mesh:
 
-        while True:
-            ret, frame = cap.read()
-            if not ret:
-                break
+            while True:
+                ret, frame = cap.read()
+                if not ret:
+                    break
 
-            rgb_frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-            results = face_mesh.process(rgb_frame)
+                rgb_frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+                results = face_mesh.process(rgb_frame)
 
-            if results.multi_face_landmarks:
-                landmarks = results.multi_face_landmarks[0].landmark
-                h, w, _ = frame.shape
+                if results.multi_face_landmarks:
+                    landmarks = results.multi_face_landmarks[0].landmark
+                    h, w, _ = frame.shape
 
-                # Draw eye points
-                for idx in LEFT_EYE + RIGHT_EYE:
-                    x = int(landmarks[idx].x * w)
-                    y = int(landmarks[idx].y * h)
-                    cv.circle(frame, (x, y), 2, (0, 255, 0), -1)
+                    # Draw eye points
+                    for idx in LEFT_EYE + RIGHT_EYE:
+                        x = int(landmarks[idx].x * w)
+                        y = int(landmarks[idx].y * h)
+                        cv.circle(frame, (x, y), 2, (0, 255, 0), -1)
 
-                # Draw mouth points
-                for idx in MOUTH:
-                    x = int(landmarks[idx].x * w)
-                    y = int(landmarks[idx].y * h)
-                    cv.circle(frame, (x, y), 2, (255, 0, 0), -1)
+                    # Draw mouth points
+                    for idx in MOUTH:
+                        x = int(landmarks[idx].x * w)
+                        y = int(landmarks[idx].y * h)
+                        cv.circle(frame, (x, y), 2, (255, 0, 0), -1)
 
-                # EAR from imported function
-                ear = compute_ear(landmarks, w, h, LEFT_EYE, RIGHT_EYE)
+                    # EAR from imported function
+                    ear = compute_ear(landmarks, w, h, LEFT_EYE, RIGHT_EYE)
 
-                # MAR calculation
-                mar = compute_mar(landmarks, w, h, MOUTH)
+                    # Track eye-closure duration using EAR threshold
+                    if ear < EAR_THRESHOLD:
+                        # Start timing when eyes first go below threshold
+                        if current_closure_start is None:
+                            current_closure_start = cv.getTickCount()
+                    else:
+                        # Eyes reopened: compute duration and update max if higher
+                        if current_closure_start is not None:
+                            end_time = cv.getTickCount()
+                            duration = (end_time - current_closure_start) / cv.getTickFrequency()
+                            if duration > max_closure_duration:
+                                max_closure_duration = duration
+                                log_change("Max Closure Duration", f"{max_closure_duration:.2f} s")
+                            current_closure_start = None
 
-                ear_history.append(ear)
+                    # MAR calculation
+                    mar = compute_mar(landmarks, w, h, MOUTH)
 
-                # Calculate PERCLOS
-                perclos = 0
-                if len(ear_history) == EAR_HISTORY_SIZE:
-                    perclos = PERCLOS(ear_history, EAR_HISTORY_SIZE)
+                    ear_history.append(ear)
 
-                # Drowsiness logic
-                drowsiness_detector.calculate_drowsy_lvl(ear, mar, perclos)
+                    # Calculate PERCLOS
+                    perclos = 0
+                    if len(ear_history) == EAR_HISTORY_SIZE:
+                        perclos = PERCLOS(ear_history, EAR_HISTORY_SIZE)
 
-                # Show EAR value
-                cv.putText(frame, f"EAR: {ear:.2f}", (30, 30),
-                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    # Drowsiness logic
+                    drowsiness_detector.calculate_drowsy_lvl(ear, mar, perclos)
 
-                # show blink count
-                cv.putText(frame, f"Blinks: {drowsiness_detector.get_blink_count()}", (30, 70),
-                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    # Show EAR value
+                    cv.putText(frame, f"EAR: {ear:.2f}", (30, 30),
+                               cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
-                # Warning for yawning
-                if mar > MAR_THRESHOLD:
-                    cv.putText(frame, "YAWN DETECTED!", (200, 30),
-                               cv.FONT_HERSHEY_SIMPLEX, 1.0, (255, 0, 0), 3)
+                    # show blink count
+                    cv.putText(frame, f"Blinks: {drowsiness_detector.get_blink_count()}", (30, 70),
+                               cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
-                # Show MAR value
-                cv.putText(frame, f"MAR: {mar:.2f}", (30, 110),
-                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    # Warning for yawning
+                    if mar > MAR_THRESHOLD:
+                        cv.putText(frame, "YAWN DETECTED!", (200, 30),
+                                   cv.FONT_HERSHEY_SIMPLEX, 1.0, (255, 0, 0), 3)
 
-                # show yawn count
-                cv.putText(frame, f"Yawns: {drowsiness_detector.get_yawn_count()}", (30, 150),
-                           cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    # Show MAR value
+                    cv.putText(frame, f"MAR: {mar:.2f}", (30, 110),
+                               cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
-                # show PERCLOS only if we have enough history
-                if len(ear_history) == EAR_HISTORY_SIZE:
-                    cv.putText(frame, f"PERCLOS: {perclos:.2f}%", (30, 190),
-                               cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+                    # show yawn count
+                    cv.putText(frame, f"Yawns: {drowsiness_detector.get_yawn_count()}", (30, 150),
+                               cv.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
-            # only ONE imshow + waitKey
-            cv.imshow("Camera", frame)
-            if cv.waitKey(1) & 0xFF == ord('q'):
-                break
+                    # show PERCLOS only if we have enough history
+                    if len(ear_history) == EAR_HISTORY_SIZE:
+                        cv.putText(frame, f"PERCLOS: {perclos:.2f}%", (30, 190),
+                                   cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
 
-    cap.release()
-    cv.destroyAllWindows()
+                    blink_count = drowsiness_detector.get_blink_count()
+                    yawn_count = drowsiness_detector.get_yawn_count()
+
+                    if previous_values["EAR"] is None or abs(ear - previous_values["EAR"]) > 0.1:
+                        log_change("EAR", f"{ear:.2f}")
+                        previous_values["EAR"] = ear
+
+                    if previous_values["MAR"] is None or abs(mar - previous_values["MAR"]) > 0.1:
+                        log_change("MAR", f"{mar:.2f}")
+                        previous_values["MAR"] = mar
+
+                    if len(ear_history) == EAR_HISTORY_SIZE and (
+                            previous_values["PERCLOS"] is None or abs(perclos - previous_values["PERCLOS"]) > 0.5
+                    ):
+                        log_change("PERCLOS", f"{perclos:.2f}%")
+                        previous_values["PERCLOS"] = perclos
+
+                    if blink_count != previous_values["BLINKS"]:
+                        log_change("Blink Count", blink_count)
+                        previous_values["BLINKS"] = blink_count
+
+                    if yawn_count != previous_values["YAWNS"]:
+                        log_change("Yawn Count", yawn_count)
+                        previous_values["YAWNS"] = yawn_count
+
+                    # If we exit while eyes are still closed, finalize that closure
+                    if current_closure_start is not None:
+                        end_time = cv.getTickCount()
+                        duration = (end_time - current_closure_start) / cv.getTickFrequency()
+                        if duration > max_closure_duration:
+                            max_closure_duration = duration
+                            log_change("Max Closure Duration", f"{max_closure_duration:.2f} s")
+                        current_closure_start = None
+
+                # only ONE imshow + waitKey
+                cv.imshow("Camera", frame)
+                if cv.waitKey(1) & 0xFF == ord('q'):
+                    break
+
+    except KeyboardInterrupt:
+        # Handles Ctrl+C so we still save the logs
+        pass
+
+    finally:
+        cap.release()
+        cv.destroyAllWindows()
+        save_logs_to_file()
