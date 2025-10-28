@@ -25,6 +25,6 @@ def PERCLOS(eye_points, total_frames):
     eye_points: list of EAR values for each frame
     total_frames: total number of frames analyzed
     """
-    closed_eyes_frames = sum(1 for ear in eye_points if ear < 0.20)  # threshold can be adjusted
+    closed_eyes_frames = sum(1 for ear in eye_points if ear < 0.11)  # threshold can be adjusted
     perclos = (closed_eyes_frames / total_frames) * 100
     return perclos
