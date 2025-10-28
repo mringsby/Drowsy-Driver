@@ -26,7 +26,7 @@ MCD_5 = 2.0 # Maximum Closure Duration threshold for drowsiness lvl 5 (in second
 
 
 class DrowsinessDetector:
-    def __init__(self, ear_threshold=0.20, consec_frames=15, blink_threshold=0.17, blink_reset_threshold=0.19, mar_threshold=0.60, yawn_consec_frames=30):
+    def __init__(self, ear_threshold=0.20, consec_frames=10, blink_threshold=0.17, blink_reset_threshold=0.19, mar_threshold=0.60, yawn_consec_frames=15):
 
         #Thresholds
         self.EAR_THRESHOLD = ear_threshold
