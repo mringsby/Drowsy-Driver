@@ -7,7 +7,7 @@ from drowsiness import DrowsinessDetector
 import collections
 from log import log_change, save_logs_to_file, get_previous_values
 import sys
-from picamera2 import Picamera2
+import v4l2
 
 
 # Initialize MediaPipe Face Mesh
@@ -40,13 +40,11 @@ max_closure_duration = 0.0
 current_closure_start = None
 
 if __name__ == '__main__':
-    picam2 = Picamera2()
-    camera_config = picam2.create_preview_configuration(
-        main={"size": (640, 480), "format": "RGB888"}
-    )
-    picam2.configure(camera_config)
-    picam2.start()
-    print("Picamera2 initialized successfully")
+    cap = cv.VideoCapture('/dev/video0', cv.CAP_V4L2)
+    cap.set(cv.CAP_PROP_FRAME_WIDTH, 640)
+    cap.set(cv.CAP_PROP_FRAME_HEIGHT, 480)
+    cap.set(cv.CAP_PROP_FPS, 30)
+    print("V4L2 camera initialized successfully")
 
     drowsiness_detector = DrowsinessDetector(EAR_THRESHOLD, CONSEC_FRAMES, BLINK_THRESHOLD, BLINK_RESET_THRESHOLD, MAR_THRESHOLD, YAWN_CONSEC_FRAMES)
 
@@ -59,12 +57,11 @@ if __name__ == '__main__':
         ) as face_mesh:
 
             while True:
-                frame = picam2.capture_array()
-                ret = frame is not None
+                ret, frame = cap.read()
                 if not ret:
                     break
 
-                rgb_frame = frame.copy()
+                rgb_frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
                 results = face_mesh.process(rgb_frame)
 
                 if results.multi_face_landmarks:
@@ -191,7 +188,7 @@ if __name__ == '__main__':
         pass
 
     finally:
-        picam2.stop()
+        cap.release()
 
         cv.destroyAllWindows()
         save_logs_to_file()
