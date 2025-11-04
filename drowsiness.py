@@ -164,6 +164,7 @@ class DrowsinessDetector:
             self.eye_closed_counter = 0
             self.blink_reset = True
             self.eye_closed_print = True
+            self.buzzer.off()
 
         elapsed_minutes = (time.time() - self.start_time) / 60
         if elapsed_minutes > 0:
