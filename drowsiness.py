@@ -146,7 +146,7 @@ class DrowsinessDetector:
                 if self.eye_closed_print:
                     print("Warning: Eyes closed!")
                     self.buzzer.frequency = 440
-                    self.buzzer.value = 1
+                    self.buzzer.value = 0.7
                     self.eye_closed_print = False
 
             if ear < self.BLINK_THRESHOLD and self.blink_reset:
