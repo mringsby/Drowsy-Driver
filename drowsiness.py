@@ -58,7 +58,6 @@ class DrowsinessDetector:
 
         # Drowsiness level
         self.drowsy_lvl = 1
-        self.buzzer = PWMOutputDevice(18)
 
     def calculate_drowsy_lvl(self, ear, mar, perclos):
 
