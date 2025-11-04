@@ -139,6 +139,7 @@ class DrowsinessDetector:
             print(f"Drowsiness Level Assessment: {self.drowsy_lvl}")
             print(f"--- End of Metrics ---\n")
             self.print_counter += 1
+            self.maximum_closure_duration = 0 # reset max closure duration for next interval
 
 
         return
