@@ -77,6 +77,8 @@ class DrowsinessDetector:
                 self.LVL_HELPER += 1
             if self.LVL_HELPER >= 3:
                 self.TMP_DROWSY_LVL = 5
+                self.buzzer.frequency = 600
+                self.buzzer.value = 0.5
 
         if self.TMP_DROWSY_LVL < 4:
             self.LVL_HELPER = 0
@@ -90,6 +92,8 @@ class DrowsinessDetector:
                 self.LVL_HELPER += 1
             if self.LVL_HELPER >= 3:
                 self.TMP_DROWSY_LVL = 4
+                self.buzzer.frequency = 600
+                self.buzzer.value = 0.5
 
         if self.TMP_DROWSY_LVL < 3:
             self.LVL_HELPER = 0
@@ -164,7 +168,9 @@ class DrowsinessDetector:
             self.eye_closed_counter = 0
             self.blink_reset = True
             self.eye_closed_print = True
-            self.buzzer.off()
+
+            if self.drowsy_lvl < 4:
+                self.buzzer.off()
 
         elapsed_minutes = (time.time() - self.start_time) / 60
         if elapsed_minutes > 0:
