@@ -21,7 +21,7 @@ MOUTH = [61, 81, 13, 311, 308, 402, 14, 178]
 
 # EAR thresholds
 EAR_THRESHOLD = 0.20
-CONSEC_FRAMES = 12
+CONSEC_FRAMES = 15
 
 EAR_HISTORY_SIZE = 1800  # Number of frames to keep in history for PERCLOS 60 seconds at 30 FPS
 ear_history = collections.deque(maxlen=EAR_HISTORY_SIZE)
