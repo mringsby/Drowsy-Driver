@@ -21,7 +21,7 @@ MOUTH = [61, 81, 13, 311, 308, 402, 14, 178]
 
 # EAR thresholds
 EAR_THRESHOLD = 0.20
-CONSEC_FRAMES = 10
+CONSEC_FRAMES = 12
 
 EAR_HISTORY_SIZE = 1800  # Number of frames to keep in history for PERCLOS 60 seconds at 30 FPS
 ear_history = collections.deque(maxlen=EAR_HISTORY_SIZE)
@@ -41,7 +41,8 @@ current_closure_start = None
 
 if __name__ == '__main__':
     picam2 = Picamera2()
-    camera_config = picam2.create_preview_configuration(
+    picam2.set_controls({"FrameRate": 30}) # Sets the target frame rate to 30 FPS
+    camera_config = picam2.create_preview_configuration( #configure camera
         main={"size": (640, 480), "format": "RGB888"}
     )
     picam2.configure(camera_config)
