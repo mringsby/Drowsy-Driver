@@ -110,7 +110,7 @@ class DrowsinessDetector:
                 self.LVL_HELPER += 1
             if PERCLOS_L_2 < perclos <= PERCLOS_H_2:
                 self.LVL_HELPER += 1
-            if self.LVL_HELPER <= 2:
+            if self.LVL_HELPER >= 1:
                 self.TMP_DROWSY_LVL = 2
 
         if self.TMP_DROWSY_LVL < 1:
@@ -146,7 +146,7 @@ class DrowsinessDetector:
                 if self.eye_closed_print:
                     print("Warning: Eyes closed!")
                     self.buzzer.frequency = 440
-                    self.buzzer.value = 1
+                    self.buzzer.value = 0.7
                     self.eye_closed_print = False
 
             if ear < self.BLINK_THRESHOLD and self.blink_reset:
