@@ -48,6 +48,7 @@ class DrowsinessDetector:
         self.yawn_frame_counter = 0
         self.yawn_reset = True
         self.eye_closed_print = True
+        self.mcd_reset = 5
 
         # Metrics
         self.maximum_closure_duration = 0 # max times eyes were closed in seconds
@@ -139,7 +140,9 @@ class DrowsinessDetector:
             print(f"Drowsiness Level Assessment: {self.drowsy_lvl}")
             print(f"--- End of Metrics ---\n")
             self.print_counter += 1
-            self.maximum_closure_duration = 0 # reset max closure duration for next interval
+            if self.print_counter == self.mcd_reset: #reset maximum closure duration every 5 minutes
+                self.maximum_closure_duration = 0 # reset max closure duration for next interval
+                self.mcd_reset += 5 # increment reset timer by another 5 minutes
 
 
         return
