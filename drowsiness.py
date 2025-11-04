@@ -107,7 +107,7 @@ class DrowsinessDetector:
                 self.LVL_HELPER += 1
             if PERCLOS_L_2 < perclos <= PERCLOS_H_2:
                 self.LVL_HELPER += 1
-            if self.LVL_HELPER <= 2:
+            if self.LVL_HELPER >= 1:
                 self.TMP_DROWSY_LVL = 2
 
         if self.TMP_DROWSY_LVL < 1:
@@ -189,3 +189,7 @@ class DrowsinessDetector:
 
     def get_yawn_count(self):
         return self.yawn_counter
+
+    def get_drowsy_level(self):
+        """Return current drowsiness level (1–5)."""
+        return self.drowsy_lvl

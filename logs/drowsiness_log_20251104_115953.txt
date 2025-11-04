@@ -1,0 +1,14 @@
+[2025-11-04 11:59:47] EAR changed to 0.23
+[2025-11-04 11:59:47] MAR changed to 0.00
+[2025-11-04 11:59:48] Blink Count changed to 1
+[2025-11-04 11:59:48] Max Closure Duration changed to 0.00 s
+[2025-11-04 11:59:48] EAR changed to 0.11
+[2025-11-04 11:59:48] EAR changed to 0.22
+[2025-11-04 11:59:48] EAR changed to 0.33
+[2025-11-04 11:59:49] EAR changed to 0.18
+[2025-11-04 11:59:49] Blink Count changed to 2
+[2025-11-04 11:59:49] EAR changed to 0.30
+[2025-11-04 11:59:50] EAR changed to 0.18
+[2025-11-04 11:59:50] EAR changed to 0.28
+[2025-11-04 11:59:50] MAR changed to 0.18
+[2025-11-04 11:59:51] MAR changed to 0.03

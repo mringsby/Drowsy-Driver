@@ -1,0 +1,177 @@
+[2025-11-04 13:25:44] EAR changed to 0.14
+[2025-11-04 13:25:44] MAR changed to 0.00
+[2025-11-04 13:25:44] Blink Count changed to 1
+[2025-11-04 13:25:44] Drowsiness Level changed to Level 2
+[2025-11-04 13:25:44] Max Closure Duration changed to 0.00 s
+[2025-11-04 13:25:44] Max Closure Duration changed to 0.00 s
+[2025-11-04 13:25:46] Drowsiness Level changed to Level 1
+[2025-11-04 13:25:47] MAR changed to 0.14
+[2025-11-04 13:25:47] MAR changed to 0.30
+[2025-11-04 13:25:47] MAR changed to 0.46
+[2025-11-04 13:25:47] MAR changed to 0.58
+[2025-11-04 13:25:47] MAR changed to 0.69
+[2025-11-04 13:25:47] MAR changed to 0.80
+[2025-11-04 13:25:47] MAR changed to 0.90
+[2025-11-04 13:25:47] Yawn Count changed to 1
+[2025-11-04 13:25:48] MAR changed to 0.74
+[2025-11-04 13:25:48] MAR changed to 0.50
+[2025-11-04 13:25:48] MAR changed to 0.25
+[2025-11-04 13:25:48] MAR changed to 0.07
+[2025-11-04 13:25:48] EAR changed to 0.28
+[2025-11-04 13:25:49] EAR changed to 0.10
+[2025-11-04 13:25:49] Blink Count changed to 2
+[2025-11-04 13:25:50] EAR changed to 0.23
+[2025-11-04 13:25:50] Blink Count changed to 3
+[2025-11-04 13:25:50] Drowsiness Level changed to Level 5
+[2025-11-04 13:25:50] EAR changed to 0.10
+[2025-11-04 13:25:50] EAR changed to 0.23
+[2025-11-04 13:25:50] Drowsiness Level changed to Level 3
+[2025-11-04 13:25:51] EAR changed to 0.11
+[2025-11-04 13:25:51] Blink Count changed to 4
+[2025-11-04 13:25:51] Drowsiness Level changed to Level 5
+[2025-11-04 13:25:51] EAR changed to 0.23
+[2025-11-04 13:25:51] EAR changed to 0.11
+[2025-11-04 13:25:51] Blink Count changed to 5
+[2025-11-04 13:25:51] EAR changed to 0.24
+[2025-11-04 13:25:52] EAR changed to 0.12
+[2025-11-04 13:25:52] Blink Count changed to 6
+[2025-11-04 13:25:52] EAR changed to 0.25
+[2025-11-04 13:25:52] EAR changed to 0.13
+[2025-11-04 13:25:52] Blink Count changed to 7
+[2025-11-04 13:25:52] EAR changed to 0.24
+[2025-11-04 13:25:53] EAR changed to 0.13
+[2025-11-04 13:25:53] Blink Count changed to 8
+[2025-11-04 13:25:53] EAR changed to 0.25
+[2025-11-04 13:25:53] EAR changed to 0.13
+[2025-11-04 13:25:53] Blink Count changed to 9
+[2025-11-04 13:26:05] Drowsiness Level changed to Level 3
+[2025-11-04 13:26:10] Drowsiness Level changed to Level 1
+[2025-11-04 13:26:23] MAR changed to 0.20
+[2025-11-04 13:26:23] MAR changed to 0.33
+[2025-11-04 13:26:23] MAR changed to 0.45
+[2025-11-04 13:26:23] MAR changed to 0.56
+[2025-11-04 13:26:23] MAR changed to 0.68
+[2025-11-04 13:26:23] MAR changed to 0.78
+[2025-11-04 13:26:23] Yawn Count changed to 2
+[2025-11-04 13:26:23] MAR changed to 0.67
+[2025-11-04 13:26:24] MAR changed to 0.42
+[2025-11-04 13:26:24] MAR changed to 0.23
+[2025-11-04 13:26:24] MAR changed to 0.03
+[2025-11-04 13:26:26] MAR changed to 0.22
+[2025-11-04 13:26:26] MAR changed to 0.32
+[2025-11-04 13:26:26] MAR changed to 0.44
+[2025-11-04 13:26:26] MAR changed to 0.60
+[2025-11-04 13:26:26] MAR changed to 0.72
+[2025-11-04 13:26:26] Yawn Count changed to 3
+[2025-11-04 13:26:26] MAR changed to 0.45
+[2025-11-04 13:26:26] MAR changed to 0.21
+[2025-11-04 13:26:27] MAR changed to 0.03
+[2025-11-04 13:26:27] EAR changed to 0.27
+[2025-11-04 13:26:27] MAR changed to 0.30
+[2025-11-04 13:26:27] MAR changed to 0.44
+[2025-11-04 13:26:27] MAR changed to 0.64
+[2025-11-04 13:26:27] MAR changed to 0.83
+[2025-11-04 13:26:27] MAR changed to 0.95
+[2025-11-04 13:26:28] Yawn Count changed to 4
+[2025-11-04 13:26:28] MAR changed to 0.66
+[2025-11-04 13:26:28] MAR changed to 0.30
+[2025-11-04 13:26:28] MAR changed to 0.14
+[2025-11-04 13:26:28] MAR changed to 0.00
+[2025-11-04 13:26:29] MAR changed to 0.11
+[2025-11-04 13:26:29] MAR changed to 0.41
+[2025-11-04 13:26:29] MAR changed to 0.57
+[2025-11-04 13:26:29] MAR changed to 0.75
+[2025-11-04 13:26:29] MAR changed to 0.86
+[2025-11-04 13:26:29] MAR changed to 0.76
+[2025-11-04 13:26:29] Yawn Count changed to 5
+[2025-11-04 13:26:29] MAR changed to 0.60
+[2025-11-04 13:26:29] MAR changed to 0.40
+[2025-11-04 13:26:29] MAR changed to 0.16
+[2025-11-04 13:26:29] MAR changed to 0.05
+[2025-11-04 13:26:30] Blink Count changed to 10
+[2025-11-04 13:26:30] EAR changed to 0.15
+[2025-11-04 13:26:30] MAR changed to 0.15
+[2025-11-04 13:26:30] MAR changed to 0.32
+[2025-11-04 13:26:30] MAR changed to 0.22
+[2025-11-04 13:26:30] EAR changed to 0.26
+[2025-11-04 13:26:30] MAR changed to 0.09
+[2025-11-04 13:26:31] MAR changed to 0.35
+[2025-11-04 13:26:31] MAR changed to 0.50
+[2025-11-04 13:26:31] MAR changed to 0.65
+[2025-11-04 13:26:31] MAR changed to 0.78
+[2025-11-04 13:26:31] MAR changed to 0.92
+[2025-11-04 13:26:31] Yawn Count changed to 6
+[2025-11-04 13:26:32] MAR changed to 0.78
+[2025-11-04 13:26:32] MAR changed to 0.66
+[2025-11-04 13:26:32] MAR changed to 0.53
+[2025-11-04 13:26:32] MAR changed to 0.35
+[2025-11-04 13:26:32] MAR changed to 0.25
+[2025-11-04 13:26:32] MAR changed to 0.12
+[2025-11-04 13:26:32] MAR changed to 0.01
+[2025-11-04 13:26:32] MAR changed to 0.13
+[2025-11-04 13:26:32] MAR changed to 0.32
+[2025-11-04 13:26:32] MAR changed to 0.51
+[2025-11-04 13:26:32] MAR changed to 0.63
+[2025-11-04 13:26:33] MAR changed to 0.74
+[2025-11-04 13:26:33] Yawn Count changed to 7
+[2025-11-04 13:26:33] MAR changed to 0.59
+[2025-11-04 13:26:33] MAR changed to 0.45
+[2025-11-04 13:26:33] MAR changed to 0.26
+[2025-11-04 13:26:33] MAR changed to 0.11
+[2025-11-04 13:26:33] MAR changed to 0.00
+[2025-11-04 13:26:38] Blink Count changed to 11
+[2025-11-04 13:26:38] EAR changed to 0.16
+[2025-11-04 13:26:40] Blink Count changed to 12
+[2025-11-04 13:26:40] EAR changed to 0.06
+[2025-11-04 13:26:42] EAR changed to 0.18
+[2025-11-04 13:26:42] MAR changed to 0.12
+[2025-11-04 13:26:42] MAR changed to 0.00
+[2025-11-04 13:26:43] MAR changed to 0.13
+[2025-11-04 13:26:43] MAR changed to 0.02
+[2025-11-04 13:26:43] MAR changed to 0.14
+[2025-11-04 13:26:44] MAR changed to 0.01
+[2025-11-04 13:26:44] MAR changed to 0.11
+[2025-11-04 13:26:44] MAR changed to 0.00
+[2025-11-04 13:26:45] PERCLOS changed to 72.56%
+[2025-11-04 13:26:45] Drowsiness Level changed to Level 5
+[2025-11-04 13:26:45] MAR changed to 0.11
+[2025-11-04 13:26:46] MAR changed to 0.28
+[2025-11-04 13:26:46] MAR changed to 0.39
+[2025-11-04 13:26:46] MAR changed to 0.58
+[2025-11-04 13:26:46] MAR changed to 0.70
+[2025-11-04 13:26:46] MAR changed to 0.81
+[2025-11-04 13:26:46] Yawn Count changed to 8
+[2025-11-04 13:26:47] MAR changed to 0.64
+[2025-11-04 13:26:47] MAR changed to 0.33
+[2025-11-04 13:26:47] MAR changed to 0.19
+[2025-11-04 13:26:47] MAR changed to 0.01
+[2025-11-04 13:26:47] PERCLOS changed to 72.00%
+[2025-11-04 13:26:47] EAR changed to 0.30
+[2025-11-04 13:26:48] PERCLOS changed to 71.44%
+[2025-11-04 13:26:48] PERCLOS changed to 70.89%
+[2025-11-04 13:26:48] PERCLOS changed to 70.33%
+[2025-11-04 13:26:49] PERCLOS changed to 69.78%
+[2025-11-04 13:26:49] PERCLOS changed to 69.22%
+[2025-11-04 13:26:51] EAR changed to 0.19
+[2025-11-04 13:26:51] Blink Count changed to 13
+[2025-11-04 13:26:53] PERCLOS changed to 68.67%
+[2025-11-04 13:26:53] Blink Count changed to 14
+[2025-11-04 13:26:54] PERCLOS changed to 69.22%
+[2025-11-04 13:26:54] PERCLOS changed to 68.67%
+[2025-11-04 13:26:55] PERCLOS changed to 68.17%
+[2025-11-04 13:26:55] PERCLOS changed to 67.61%
+[2025-11-04 13:26:55] PERCLOS changed to 67.06%
+[2025-11-04 13:26:56] PERCLOS changed to 66.50%
+[2025-11-04 13:26:56] PERCLOS changed to 65.94%
+[2025-11-04 13:26:56] PERCLOS changed to 65.44%
+[2025-11-04 13:26:56] MAR changed to 0.30
+[2025-11-04 13:26:57] MAR changed to 0.46
+[2025-11-04 13:26:57] MAR changed to 0.34
+[2025-11-04 13:26:57] PERCLOS changed to 64.89%
+[2025-11-04 13:26:57] MAR changed to 0.23
+[2025-11-04 13:26:57] Blink Count changed to 15
+[2025-11-04 13:26:57] PERCLOS changed to 64.33%
+[2025-11-04 13:26:57] PERCLOS changed to 63.78%
+[2025-11-04 13:26:58] PERCLOS changed to 63.22%
+[2025-11-04 13:26:58] PERCLOS changed to 62.67%
+[2025-11-04 13:26:58] PERCLOS changed to 62.11%

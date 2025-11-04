@@ -158,6 +158,13 @@ if __name__ == '__main__':
                         log_change("Yawn Count", yawn_count)
                         previous_values["YAWNS"] = yawn_count
 
+                    # --- Log drowsiness level changes ---
+                    drowsy_level = drowsiness_detector.get_drowsy_level()
+
+                    if previous_values["DROWSINESS_LEVEL"] != drowsy_level:
+                        log_change("Drowsiness Level", f"Level {drowsy_level}")
+                        previous_values["DROWSINESS_LEVEL"] = drowsy_level
+
                     # If we exit while eyes are still closed, finalize that closure
                     if current_closure_start is not None:
                         end_time = cv.getTickCount()

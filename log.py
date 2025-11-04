@@ -9,7 +9,8 @@ previous_values = {
     "PERCLOS": None,
     "BLINKS": 0,
     "YAWNS": 0,
-    "MAX_CLOSURE_DURATION": 0.0
+    "MAX_CLOSURE_DURATION": 0.0,
+    "DROWSINESS_LEVEL": None
 }
 
 def log_change(label, value):

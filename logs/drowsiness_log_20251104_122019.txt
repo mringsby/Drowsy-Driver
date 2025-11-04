@@ -1,0 +1,113 @@
+[2025-11-04 12:19:32] EAR changed to 0.24
+[2025-11-04 12:19:32] MAR changed to 0.00
+[2025-11-04 12:19:33] Max Closure Duration changed to 0.00 s
+[2025-11-04 12:19:33] Blink Count changed to 1
+[2025-11-04 12:19:33] Max Closure Duration changed to 0.00 s
+[2025-11-04 12:19:33] EAR changed to 0.13
+[2025-11-04 12:19:33] Max Closure Duration changed to 0.00 s
+[2025-11-04 12:19:33] EAR changed to 0.24
+[2025-11-04 12:19:33] MAR changed to 0.16
+[2025-11-04 12:19:33] MAR changed to 0.28
+[2025-11-04 12:19:33] MAR changed to 0.40
+[2025-11-04 12:19:34] Blink Count changed to 2
+[2025-11-04 12:19:34] MAR changed to 0.26
+[2025-11-04 12:19:34] MAR changed to 0.14
+[2025-11-04 12:19:34] EAR changed to 0.08
+[2025-11-04 12:19:34] MAR changed to 0.00
+[2025-11-04 12:19:34] Blink Count changed to 3
+[2025-11-04 12:19:34] EAR changed to 0.19
+[2025-11-04 12:19:34] MAR changed to 0.23
+[2025-11-04 12:19:34] MAR changed to 0.09
+[2025-11-04 12:19:34] MAR changed to 0.21
+[2025-11-04 12:19:34] EAR changed to 0.32
+[2025-11-04 12:19:35] MAR changed to 0.02
+[2025-11-04 12:19:35] EAR changed to 0.07
+[2025-11-04 12:19:35] Blink Count changed to 4
+[2025-11-04 12:19:35] EAR changed to 0.19
+[2025-11-04 12:19:35] EAR changed to 0.05
+[2025-11-04 12:19:35] Blink Count changed to 5
+[2025-11-04 12:19:35] EAR changed to 0.19
+[2025-11-04 12:19:36] EAR changed to 0.30
+[2025-11-04 12:19:39] EAR changed to 0.16
+[2025-11-04 12:19:39] Blink Count changed to 6
+[2025-11-04 12:19:39] EAR changed to 0.06
+[2025-11-04 12:19:39] EAR changed to 0.19
+[2025-11-04 12:19:39] EAR changed to 0.31
+[2025-11-04 12:19:40] EAR changed to 0.06
+[2025-11-04 12:19:40] Blink Count changed to 7
+[2025-11-04 12:19:40] EAR changed to 0.21
+[2025-11-04 12:19:40] EAR changed to 0.06
+[2025-11-04 12:19:40] Blink Count changed to 8
+[2025-11-04 12:19:40] EAR changed to 0.19
+[2025-11-04 12:19:41] EAR changed to 0.07
+[2025-11-04 12:19:41] Blink Count changed to 9
+[2025-11-04 12:19:41] EAR changed to 0.20
+[2025-11-04 12:19:41] Blink Count changed to 10
+[2025-11-04 12:19:41] EAR changed to 0.06
+[2025-11-04 12:19:41] EAR changed to 0.20
+[2025-11-04 12:19:43] EAR changed to 0.07
+[2025-11-04 12:19:43] Blink Count changed to 11
+[2025-11-04 12:19:44] EAR changed to 0.17
+[2025-11-04 12:19:45] Blink Count changed to 12
+[2025-11-04 12:19:47] Blink Count changed to 13
+[2025-11-04 12:19:47] EAR changed to 0.29
+[2025-11-04 12:19:49] EAR changed to 0.12
+[2025-11-04 12:19:49] Blink Count changed to 14
+[2025-11-04 12:19:49] EAR changed to 0.22
+[2025-11-04 12:19:49] Blink Count changed to 15
+[2025-11-04 12:19:49] EAR changed to 0.11
+[2025-11-04 12:19:49] EAR changed to 0.26
+[2025-11-04 12:19:50] EAR changed to 0.37
+[2025-11-04 12:19:51] EAR changed to 0.24
+[2025-11-04 12:19:52] EAR changed to 0.07
+[2025-11-04 12:19:52] Blink Count changed to 16
+[2025-11-04 12:19:52] EAR changed to 0.19
+[2025-11-04 12:19:53] EAR changed to 0.31
+[2025-11-04 12:19:54] EAR changed to 0.09
+[2025-11-04 12:19:54] Blink Count changed to 17
+[2025-11-04 12:19:54] EAR changed to 0.24
+[2025-11-04 12:19:55] EAR changed to 0.34
+[2025-11-04 12:19:58] EAR changed to 0.17
+[2025-11-04 12:19:58] Blink Count changed to 18
+[2025-11-04 12:19:58] EAR changed to 0.28
+[2025-11-04 12:19:58] EAR changed to 0.15
+[2025-11-04 12:19:58] Blink Count changed to 19
+[2025-11-04 12:19:58] EAR changed to 0.29
+[2025-11-04 12:19:58] EAR changed to 0.17
+[2025-11-04 12:19:59] EAR changed to 0.27
+[2025-11-04 12:19:59] EAR changed to 0.15
+[2025-11-04 12:19:59] Blink Count changed to 20
+[2025-11-04 12:19:59] EAR changed to 0.26
+[2025-11-04 12:19:59] EAR changed to 0.13
+[2025-11-04 12:19:59] Blink Count changed to 21
+[2025-11-04 12:19:59] EAR changed to 0.23
+[2025-11-04 12:20:00] Blink Count changed to 22
+[2025-11-04 12:20:00] Blink Count changed to 23
+[2025-11-04 12:20:02] Blink Count changed to 24
+[2025-11-04 12:20:03] Blink Count changed to 25
+[2025-11-04 12:20:03] EAR changed to 0.12
+[2025-11-04 12:20:03] EAR changed to 0.24
+[2025-11-04 12:20:04] EAR changed to 0.09
+[2025-11-04 12:20:04] Blink Count changed to 26
+[2025-11-04 12:20:04] EAR changed to 0.22
+[2025-11-04 12:20:05] EAR changed to 0.11
+[2025-11-04 12:20:05] Blink Count changed to 27
+[2025-11-04 12:20:05] EAR changed to 0.24
+[2025-11-04 12:20:06] Blink Count changed to 28
+[2025-11-04 12:20:07] Blink Count changed to 29
+[2025-11-04 12:20:09] Blink Count changed to 30
+[2025-11-04 12:20:09] Blink Count changed to 31
+[2025-11-04 12:20:10] Blink Count changed to 32
+[2025-11-04 12:20:15] Blink Count changed to 33
+[2025-11-04 12:20:15] MAR changed to 0.16
+[2025-11-04 12:20:15] MAR changed to 0.00
+[2025-11-04 12:20:15] Blink Count changed to 34
+[2025-11-04 12:20:15] EAR changed to 0.13
+[2025-11-04 12:20:15] EAR changed to 0.24
+[2025-11-04 12:20:15] Blink Count changed to 35
+[2025-11-04 12:20:15] EAR changed to 0.14
+[2025-11-04 12:20:16] EAR changed to 0.25
+[2025-11-04 12:20:16] Blink Count changed to 36
+[2025-11-04 12:20:17] MAR changed to 0.23
+[2025-11-04 12:20:17] MAR changed to 0.33
+[2025-11-04 12:20:17] MAR changed to 0.21
