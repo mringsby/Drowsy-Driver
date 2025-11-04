@@ -1,6 +1,6 @@
 import cv2 as cv
 import time
-import buzzer
+from gpiozero import PWMOutputDevice
 from time import sleep
 
 BPM_1 = 20  # Blinks per minute threshold for drowsiness lvl 1
@@ -58,6 +58,7 @@ class DrowsinessDetector:
 
         # Drowsiness level
         self.drowsy_lvl = 1
+        self.buzzer = PWMOutputDevice(18)
 
     def calculate_drowsy_lvl(self, ear, mar, perclos):
 
@@ -144,7 +145,8 @@ class DrowsinessDetector:
             if self.eye_closed_counter >= self.CONSEC_FRAMES:
                 if self.eye_closed_print:
                     print("Warning: Eyes closed!")
-                    buzzer.buzzing = True
+                    self.buzzer.frequency = 600
+                    self.buzzer.value = 0.5
                     self.eye_closed_print = False
 
             if ear < self.BLINK_THRESHOLD and self.blink_reset:
@@ -153,7 +155,7 @@ class DrowsinessDetector:
 
             if ear >= self.BLINK_RESET_THRESHOLD:
                 self.blink_reset = True
-                buzzer.buzzing = False
+                self.buzzer.off()
         else:
             if self.eye_closed_counter / 30 > self.maximum_closure_duration:
                 self.maximum_closure_duration = self.eye_closed_counter / 30
