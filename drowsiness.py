@@ -1,5 +1,7 @@
 import cv2 as cv
 import time
+from gpiozero import PWMOutputDevice
+from time import sleep
 
 BPM_1 = 20  # Blinks per minute threshold for drowsiness lvl 1
 PERCLOS_1 = 7.5  # PERCLOS threshold for drowsiness lvl 1
@@ -26,7 +28,7 @@ MCD_5 = 2.0 # Maximum Closure Duration threshold for drowsiness lvl 5 (in second
 
 
 class DrowsinessDetector:
-    def __init__(self, ear_threshold=0.20, consec_frames=10, blink_threshold=0.17, blink_reset_threshold=0.19, mar_threshold=0.60, yawn_consec_frames=15):
+    def __init__(self, ear_threshold=0.20, consec_frames=15, blink_threshold=0.17, blink_reset_threshold=0.19, mar_threshold=0.60, yawn_consec_frames=15):
 
         #Thresholds
         self.EAR_THRESHOLD = ear_threshold
@@ -56,6 +58,7 @@ class DrowsinessDetector:
 
         # Drowsiness level
         self.drowsy_lvl = 1
+        self.buzzer = PWMOutputDevice(18)
 
     def calculate_drowsy_lvl(self, ear, mar, perclos):
 
@@ -142,6 +145,8 @@ class DrowsinessDetector:
             if self.eye_closed_counter >= self.CONSEC_FRAMES:
                 if self.eye_closed_print:
                     print("Warning: Eyes closed!")
+                    self.buzzer.frequency = 440
+                    self.buzzer.value = 0.5
                     self.eye_closed_print = False
 
             if ear < self.BLINK_THRESHOLD and self.blink_reset:
@@ -150,6 +155,7 @@ class DrowsinessDetector:
 
             if ear >= self.BLINK_RESET_THRESHOLD:
                 self.blink_reset = True
+                self.buzzer.off()
         else:
             if self.eye_closed_counter / 30 > self.maximum_closure_duration:
                 self.maximum_closure_duration = self.eye_closed_counter / 30
