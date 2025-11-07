@@ -158,21 +158,22 @@ if __name__ == '__main__':
                         log_change("Yawn Count", yawn_count)
                         previous_values["YAWNS"] = yawn_count
 
-                    # --- Log drowsiness level changes ---
-                    drowsy_level = drowsiness_detector.get_drowsy_level()
+                    # --- Log maximum closure duration (from detector, correct value) ---
+                    detector_mcd = drowsiness_detector.get_max_closure_duration()
 
-                    if previous_values["DROWSINESS_LEVEL"] != drowsy_level:
-                        log_change("Drowsiness Level", f"Level {drowsy_level}")
-                        previous_values["DROWSINESS_LEVEL"] = drowsy_level
+                    if previous_values["MAX_CLOSURE_DURATION"] is None or detector_mcd > previous_values[
+                        "MAX_CLOSURE_DURATION"]:
+                        log_change("Max Closure Duration", f"{detector_mcd:.2f} s")
+                        previous_values["MAX_CLOSURE_DURATION"] = detector_mcd
 
                     # If we exit while eyes are still closed, finalize that closure
-                    if current_closure_start is not None:
-                        end_time = cv.getTickCount()
-                        duration = (end_time - current_closure_start) / cv.getTickFrequency()
-                        if duration > max_closure_duration:
-                            max_closure_duration = duration
-                            log_change("Max Closure Duration", f"{max_closure_duration:.2f} s")
-                        current_closure_start = None
+                    #if current_closure_start is not None:
+                    #    end_time = cv.getTickCount()
+                    #    duration = (end_time - current_closure_start) / cv.getTickFrequency()
+                    #    if duration > max_closure_duration:
+                    #        max_closure_duration = duration
+                    #        log_change("Max Closure Duration", f"{max_closure_duration:.2f} s")
+                    #    current_closure_start = None
 
                 # only ONE imshow + waitKey
                 cv.imshow("Camera", frame)

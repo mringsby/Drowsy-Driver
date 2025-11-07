@@ -1,0 +1,17 @@
+[2025-11-07 11:48:16] EAR changed to 0.17
+[2025-11-07 11:48:16] MAR changed to 0.01
+[2025-11-07 11:48:16] Blink Count changed to 1
+[2025-11-07 11:48:16] Drowsiness Level changed to Level 2
+[2025-11-07 11:48:16] Max Closure Duration changed to 0.00 s
+[2025-11-07 11:48:16] Buzzer active changed to ON (Eyes closed)
+[2025-11-07 11:48:16] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-07 11:48:18] Blink Count changed to 2
+[2025-11-07 11:48:18] Buzzer active changed to ON (Eyes closed)
+[2025-11-07 11:48:21] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-07 11:48:21] Drowsiness Level changed to Level 1
+[2025-11-07 11:48:22] Blink Count changed to 3
+[2025-11-07 11:48:22] Drowsiness Level changed to Level 2
+[2025-11-07 11:48:22] Buzzer active changed to ON (Eyes closed)
+[2025-11-07 11:48:24] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-07 11:48:24] EAR changed to 0.27
+[2025-11-07 11:48:24] Drowsiness Level changed to Level 1

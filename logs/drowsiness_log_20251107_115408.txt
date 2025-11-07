@@ -1,0 +1,58 @@
+[2025-11-07 11:53:44] EAR changed to 0.23
+[2025-11-07 11:53:44] MAR changed to 0.00
+[2025-11-07 11:53:45] Blink Count changed to 1
+[2025-11-07 11:53:45] Max Closure Duration changed to 0.00 s
+[2025-11-07 11:53:45] EAR changed to 0.11
+[2025-11-07 11:53:45] Buzzer active changed to ON (Eyes closed)
+[2025-11-07 11:53:45] Max Closure Duration changed to 0.00 s
+[2025-11-07 11:53:45] Max Closure Duration changed to 0.00 s
+[2025-11-07 11:53:47] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-07 11:53:47] EAR changed to 0.21
+[2025-11-07 11:53:47] Max Closure Duration changed to 1.73 s
+[2025-11-07 11:53:48] EAR changed to 0.10
+[2025-11-07 11:53:48] Blink Count changed to 2
+[2025-11-07 11:53:49] Buzzer active changed to ON (Eyes closed)
+[2025-11-07 11:53:49] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-07 11:53:49] EAR changed to 0.23
+[2025-11-07 11:53:51] Blink Count changed to 3
+[2025-11-07 11:53:51] EAR changed to 0.34
+[2025-11-07 11:53:52] EAR changed to 0.22
+[2025-11-07 11:53:52] Blink Count changed to 4
+[2025-11-07 11:53:52] Buzzer active changed to ON (Eyes closed)
+[2025-11-07 11:53:52] EAR changed to 0.11
+[2025-11-07 11:53:53] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-07 11:53:53] EAR changed to 0.24
+[2025-11-07 11:53:53] EAR changed to 0.34
+[2025-11-07 11:53:54] EAR changed to 0.12
+[2025-11-07 11:53:54] Blink Count changed to 5
+[2025-11-07 11:53:54] Max Closure Duration changed to 0.00 s
+[2025-11-07 11:53:54] EAR changed to 0.23
+[2025-11-07 11:53:55] EAR changed to 0.34
+[2025-11-07 11:53:56] EAR changed to 0.23
+[2025-11-07 11:53:56] EAR changed to 0.07
+[2025-11-07 11:53:56] Blink Count changed to 6
+[2025-11-07 11:53:56] Buzzer active changed to ON (Eyes closed)
+[2025-11-07 11:53:57] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-07 11:53:57] EAR changed to 0.20
+[2025-11-07 11:53:58] Blink Count changed to 7
+[2025-11-07 11:53:58] EAR changed to 0.10
+[2025-11-07 11:53:58] Blink Count changed to 8
+[2025-11-07 11:53:58] Max Closure Duration changed to 0.00 s
+[2025-11-07 11:53:58] EAR changed to 0.20
+[2025-11-07 11:53:59] EAR changed to 0.30
+[2025-11-07 11:53:59] EAR changed to 0.12
+[2025-11-07 11:53:59] Blink Count changed to 9
+[2025-11-07 11:53:59] EAR changed to 0.22
+[2025-11-07 11:54:00] Blink Count changed to 10
+[2025-11-07 11:54:00] EAR changed to 0.32
+[2025-11-07 11:54:00] EAR changed to 0.22
+[2025-11-07 11:54:00] Blink Count changed to 11
+[2025-11-07 11:54:02] Blink Count changed to 12
+[2025-11-07 11:54:02] EAR changed to 0.12
+[2025-11-07 11:54:02] Buzzer active changed to ON (Eyes closed)
+[2025-11-07 11:54:05] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-07 11:54:05] EAR changed to 0.22
+[2025-11-07 11:54:05] Max Closure Duration changed to 3.07 s
+[2025-11-07 11:54:06] Blink Count changed to 13
+[2025-11-07 11:54:06] EAR changed to 0.10
+[2025-11-07 11:54:06] EAR changed to 0.24
