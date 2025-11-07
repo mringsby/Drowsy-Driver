@@ -2,6 +2,7 @@ import cv2 as cv
 import time
 from gpiozero import PWMOutputDevice
 from time import sleep
+from log import log_change
 
 BPM_1 = 20  # Blinks per minute threshold for drowsiness lvl 1
 PERCLOS_1 = 7.5  # PERCLOS threshold for drowsiness lvl 1
@@ -49,6 +50,7 @@ class DrowsinessDetector:
         self.yawn_reset = True
         self.eye_closed_print = True
         self.mcd_reset = 5
+        self.buzzer_active = False
 
         # Metrics
         self.maximum_closure_duration = 0 # max times eyes were closed in seconds
@@ -80,6 +82,8 @@ class DrowsinessDetector:
                 self.TMP_DROWSY_LVL = 5
                 self.buzzer.frequency = 600
                 self.buzzer.value = 0.5
+                log_change("Buzzer active", "ON (Level 5)")
+                self.buzzer_active = True
 
         if self.TMP_DROWSY_LVL < 4:
             self.LVL_HELPER = 0
@@ -95,6 +99,8 @@ class DrowsinessDetector:
                 self.TMP_DROWSY_LVL = 4
                 self.buzzer.frequency = 600
                 self.buzzer.value = 0.5
+                log_change("Buzzer active", "ON (Level 4)")
+                self.buzzer_active = True
 
         if self.TMP_DROWSY_LVL < 3:
             self.LVL_HELPER = 0
@@ -156,6 +162,8 @@ class DrowsinessDetector:
                     self.buzzer.frequency = 600
                     self.buzzer.value = 0.5
                     self.eye_closed_print = False
+                    log_change("Buzzer active", "ON (Eyes closed)")
+                    self.buzzer_active = True
 
             if ear < self.BLINK_THRESHOLD and self.blink_reset:
                 self.blink_counter += 1
@@ -164,6 +172,9 @@ class DrowsinessDetector:
             if ear >= self.BLINK_RESET_THRESHOLD:
                 self.blink_reset = True
                 self.buzzer.off()
+                if self.buzzer_active:
+                    log_change("Buzzer deactivated", "OFF (Blink reset)")
+                    self.buzzer_active = False
         else:
             if self.eye_closed_counter / 30 > self.maximum_closure_duration:
                 self.maximum_closure_duration = self.eye_closed_counter / 30
@@ -175,6 +186,9 @@ class DrowsinessDetector:
 
             if self.drowsy_lvl < 4:
                 self.buzzer.off()
+                if self.buzzer_active:
+                    log_change("Buzzer deactivated", "OFF (Blink reset)")
+                    self.buzzer_active = False
 
         elapsed_minutes = (time.time() - self.start_time) / 60
         if elapsed_minutes > 0:
