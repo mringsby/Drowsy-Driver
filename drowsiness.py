@@ -82,8 +82,9 @@ class DrowsinessDetector:
                 self.TMP_DROWSY_LVL = 5
                 self.buzzer.frequency = 600
                 self.buzzer.value = 0.5
-                log_change("Buzzer active", "ON (Level 5)")
-                self.buzzer_active = True
+                if not self.buzzer_active:
+                    log_change("Buzzer active", "ON (Level 5)")
+                    self.buzzer_active = True
 
         if self.TMP_DROWSY_LVL < 4:
             self.LVL_HELPER = 0
@@ -99,8 +100,9 @@ class DrowsinessDetector:
                 self.TMP_DROWSY_LVL = 4
                 self.buzzer.frequency = 600
                 self.buzzer.value = 0.5
-                log_change("Buzzer active", "ON (Level 4)")
-                self.buzzer_active = True
+                if not self.buzzer_active:
+                    log_change("Buzzer active", "ON (Level 4)")
+                    self.buzzer_active = True
 
         if self.TMP_DROWSY_LVL < 3:
             self.LVL_HELPER = 0
