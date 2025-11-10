@@ -1,6 +1,6 @@
 # Drowsy Driver - Final Release
 
-A real-time drowsiness detection demo using computer vision to monitor eye blinks, yawns, and eye closure patterns to determine users drowsiness-level 1-5 and alert if user is too drowsy.
+A real-time drowsiness detection demo using computer vision to monitor eye blinks, yawns, and eye closure patterns to determine users drowsiness-level 1-5 and alert if user is too drowsy. This version is not for running on raspberry pi but for testing locally. For Raspberry pi code go to branch picamera.
 
 ## Requirements & Installation
 
