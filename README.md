@@ -1,25 +1,33 @@
-# Drowsy Driver - Demo Release/First Release
+# Drowsy Driver - Final Release
 
-A real-time drowsiness detection demo using computer vision to monitor eye blinks, yawns, and eye closure patterns.
+A real-time drowsiness detection demo using computer vision to monitor eye blinks, yawns, and eye closure patterns to determine users drowsiness-level 1-5 and alert if user is too drowsy.
 
 ## Requirements & Installation
 
 ### **Python 3.11 required**
 
+### Powershell first time installation
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/mringsby/Drowsy-Driver.git
    ```
+2. Move to project directory:
+   ```cd Drowsy-Driver```
+3. Move to Final-Release branch:
+   ```git checkout Final-Release```
+5. Create virtual environment:
+   ```py -3.11 -m venv venv```
+6. Activate venv, install dependencies, and run program (This will take some time, be patient)
+   ```powershell -ExecutionPolicy Bypass -Command "& .\venv\Scripts\Activate.ps1; pip install -r requirements.txt; python main.py"```
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Run the demo:
-   ```bash
-   python main.py
-   ```
+### Run program with Powershell after install
+1. Move to project directory:
+   ```cd Drowsy-Driver```
+2. Move to Final-Release branch:
+   ```git checkout Final-Release```
+3. Activate venv and run:
+   ```powershell -ExecutionPolicy Bypass -Command "& .\venv\Scripts\Activate.ps1; python main.py"```
 
 ## Usage
 
@@ -42,10 +50,4 @@ A real-time drowsiness detection demo using computer vision to monitor eye blink
 - **Yawn Frequency**: Average yawns per minute  
 - **Maximum Eye Closure Duration**: Longest continuous period eyes were closed (in seconds)
 - **PERCLOS Percentage**: Drowsiness indicator based on eye closure time over 60-second window
-
-## Demo Features
-
-- Real-time face landmark detection
-- Eye closure warnings
-- Yawn detection alerts
-- Drowsiness metrics
+- **Drowsiness Level 1-5**: Indicator to show what drowsiness level the user currently is on
