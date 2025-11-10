@@ -1,0 +1,48 @@
+[2025-11-10 16:34:23] EAR changed to 0.28
+[2025-11-10 16:34:23] MAR changed to 0.00
+[2025-11-10 16:34:29] EAR changed to 0.17
+[2025-11-10 16:34:29] Max Closure Duration changed to 0.09 s
+[2025-11-10 16:34:29] Max Closure Duration changed to 0.07 s
+[2025-11-10 16:34:33] EAR changed to 0.27
+[2025-11-10 16:34:34] EAR changed to 0.11
+[2025-11-10 16:34:34] Blink Count changed to 1
+[2025-11-10 16:34:34] Buzzer active changed to ON (Eyes closed)
+[2025-11-10 16:34:36] Max Closure Duration changed to 2.66 s
+[2025-11-10 16:34:36] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-10 16:34:36] EAR changed to 0.21
+[2025-11-10 16:34:36] Max Closure Duration changed to 2.63 s
+[2025-11-10 16:34:37] Blink Count changed to 2
+[2025-11-10 16:34:39] EAR changed to 0.10
+[2025-11-10 16:34:39] Blink Count changed to 3
+[2025-11-10 16:34:39] EAR changed to 0.21
+[2025-11-10 16:34:42] Blink Count changed to 4
+[2025-11-10 16:34:45] Blink Count changed to 5
+[2025-11-10 16:34:47] EAR changed to 0.31
+[2025-11-10 16:34:48] EAR changed to 0.20
+[2025-11-10 16:34:48] Blink Count changed to 6
+[2025-11-10 16:34:48] EAR changed to 0.10
+[2025-11-10 16:34:48] EAR changed to 0.21
+[2025-11-10 16:34:50] Blink Count changed to 7
+[2025-11-10 16:34:50] EAR changed to 0.10
+[2025-11-10 16:34:50] Buzzer active changed to ON (Eyes closed)
+[2025-11-10 16:34:53] Max Closure Duration changed to 3.56 s
+[2025-11-10 16:34:53] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-10 16:34:53] Max Closure Duration changed to 3.53 s
+[2025-11-10 16:34:53] EAR changed to 0.21
+[2025-11-10 16:34:55] Blink Count changed to 8
+[2025-11-10 16:34:55] EAR changed to 0.07
+[2025-11-10 16:34:55] Buzzer active changed to ON (Eyes closed)
+[2025-11-10 16:34:58] Buzzer deactivated changed to OFF (Blink reset)
+[2025-11-10 16:34:58] EAR changed to 0.20
+[2025-11-10 16:34:58] Blink Count changed to 9
+[2025-11-10 16:35:00] Blink Count changed to 10
+[2025-11-10 16:35:00] EAR changed to 0.09
+[2025-11-10 16:35:00] EAR changed to 0.23
+[2025-11-10 16:35:01] EAR changed to 0.09
+[2025-11-10 16:35:01] Blink Count changed to 11
+[2025-11-10 16:35:01] EAR changed to 0.20
+[2025-11-10 16:35:01] Blink Count changed to 12
+[2025-11-10 16:35:01] EAR changed to 0.10
+[2025-11-10 16:35:01] EAR changed to 0.22
+[2025-11-10 16:35:08] MAR changed to 0.20
+[2025-11-10 16:35:08] MAR changed to 0.07

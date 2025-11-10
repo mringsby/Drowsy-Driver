@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/marius/Drowsy-Driver/Drowsy-Driver/main.py", line 10, in <module>
-    from picamera2 import Picamera2
-  File "/home/marius/.local/lib/python3.11/site-packages/picamera2/__init__.py", line 4, in <module>
-    import libcamera
-ModuleNotFoundError: No module named 'libcamera'
