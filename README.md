@@ -13,13 +13,21 @@ A real-time drowsiness detection demo using computer vision to monitor eye blink
    git clone https://github.com/mringsby/Drowsy-Driver.git
    ```
 2. Move to project directory:
-   ```cd Drowsy-Driver```
+   ```
+   cd Drowsy-Driver
+   ```
 3. Move to Final-Release branch:
-   ```git checkout Final-Release```
-5. Create virtual environment:
-   ```py -3.11 -m venv venv```
-6. Activate venv, install dependencies, and run program (This will take some time, be patient)
-   ```powershell -ExecutionPolicy Bypass -Command "& .\venv\Scripts\Activate.ps1; pip install -r requirements.txt; python main.py"```
+   ```
+   git checkout Final-Release
+   ```
+4. Create virtual environment:
+   ```
+   py -3.11 -m venv venv
+   ```
+5. Activate venv, install dependencies, and run program (This will take some time, be patient)
+   ```
+   powershell -ExecutionPolicy Bypass -Command "& .\venv\Scripts\Activate.ps1; pip install -r requirements.txt; python main.py"
+   ```
 
 ### Run program with Powershell after install
 1. Move to project directory:
