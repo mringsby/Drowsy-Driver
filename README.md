@@ -1,25 +1,15 @@
-# Drowsy Driver - Demo Release/First Release
+# Drowsy Driver - Final Release (raspberry pi version)
 
-A real-time drowsiness detection demo using computer vision to monitor eye blinks, yawns, and eye closure patterns.
+A real-time drowsiness detection demo using computer vision to monitor eye blinks, yawns, and eye closure patterns to determine users drowsiness-level 1-5 and alert if user is too drowsy. This version is for running on raspberry pi. Buzzer should be on pin 9(ground) and 12, part: ps1240. For testing on pc checkout branch Final-Release.
 
 ## Requirements & Installation
 
-### **Python 3.11 required**
+### **PI OS Legacy 64-bit (debian bookworm) required**
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/mringsby/Drowsy-Driver.git
-   ```
+### First time installation
+1. Make sure libcamera is installed
+2. 
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Run the demo:
-   ```bash
-   python main.py
-   ```
 
 ## Usage
 
@@ -42,10 +32,4 @@ A real-time drowsiness detection demo using computer vision to monitor eye blink
 - **Yawn Frequency**: Average yawns per minute  
 - **Maximum Eye Closure Duration**: Longest continuous period eyes were closed (in seconds)
 - **PERCLOS Percentage**: Drowsiness indicator based on eye closure time over 60-second window
-
-## Demo Features
-
-- Real-time face landmark detection
-- Eye closure warnings
-- Yawn detection alerts
-- Drowsiness metrics
+- **Drowsiness Level 1-5**: Indicator to show what drowsiness level the user currently is on
