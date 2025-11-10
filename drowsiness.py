@@ -169,7 +169,7 @@ class DrowsinessDetector:
                 self.blink_reset = True
                 if self.buzzer_active:
                     log_change("Buzzer deactivated", "OFF (Blink reset)")
-                    print("Buzzer deactivated due to blink reset")
+                    print("Buzzer deactivated")
                     self.buzzer_active = False
 
         else:
@@ -184,7 +184,7 @@ class DrowsinessDetector:
             if self.drowsy_lvl < 4:
                 if self.buzzer_active:
                     log_change("Buzzer deactivated", "OFF (Blink reset)")
-                    print("Buzzer deactivated due to drowsiness level below 4")
+                    print("Buzzer deactivated")
                     self.buzzer_active = False
 
         elapsed_minutes = (time.time() - self.start_time) / 60
