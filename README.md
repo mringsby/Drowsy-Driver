@@ -5,7 +5,7 @@ A real-time drowsiness detection demo using computer vision to monitor eye blink
 ## Requirements
 
 - **Raspberry Pi OS Legacy 64-bit (Debian Bookworm)** - comes with Python 3.11 pre-installed
-- **Raspberry Pi Camera Module** (v2 or v3)
+- **Raspberry Pi Camera Module** v3
 - **Buzzer (ps1240)** connected to GPIO pins 9 (ground) and 12
 
 ## Installation
