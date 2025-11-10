@@ -79,6 +79,7 @@ class DrowsinessDetector:
                 self.TMP_DROWSY_LVL = 5
                 if not self.buzzer_active:
                     log_change("Buzzer active", "ON (Level 5)")
+                    print("Buzzer activated due to drowsiness level 5")
                     self.buzzer_active = True
 
         if self.TMP_DROWSY_LVL < 4:
@@ -94,7 +95,8 @@ class DrowsinessDetector:
             if self.LVL_HELPER >= 3:
                 self.TMP_DROWSY_LVL = 4
                 if not self.buzzer_active:
-                    log_change("Buzzer active", "ON (Level 5)")
+                    log_change("Buzzer active", "ON (Level 4)")
+                    print("Buzzer activated due to drowsiness level 4")
                     self.buzzer_active = True
 
         if self.TMP_DROWSY_LVL < 3:
@@ -156,6 +158,7 @@ class DrowsinessDetector:
                     print("Warning: Eyes closed!")
                     self.eye_closed_print = False
                     log_change("Buzzer active", "ON (Eyes closed)")
+                    print("Buzzer activated due to eyes closed too long")
                     self.buzzer_active = True
 
             if ear < self.BLINK_THRESHOLD and self.blink_reset:
@@ -166,6 +169,7 @@ class DrowsinessDetector:
                 self.blink_reset = True
                 if self.buzzer_active:
                     log_change("Buzzer deactivated", "OFF (Blink reset)")
+                    print("Buzzer deactivated due to blink reset")
                     self.buzzer_active = False
 
         else:
@@ -180,6 +184,7 @@ class DrowsinessDetector:
             if self.drowsy_lvl < 4:
                 if self.buzzer_active:
                     log_change("Buzzer deactivated", "OFF (Blink reset)")
+                    print("Buzzer deactivated due to drowsiness level below 4")
                     self.buzzer_active = False
 
         elapsed_minutes = (time.time() - self.start_time) / 60
