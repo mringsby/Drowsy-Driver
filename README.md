@@ -31,11 +31,17 @@ A real-time drowsiness detection demo using computer vision to monitor eye blink
 
 ### Run program with Powershell after install
 1. Move to project directory:
-   ```cd Drowsy-Driver```
+   ```
+   cd Drowsy-Driver
+   ```
 2. Move to Final-Release branch:
-   ```git checkout Final-Release```
+   ```
+   git checkout Final-Release
+   ```
 3. Activate venv and run:
-   ```powershell -ExecutionPolicy Bypass -Command "& .\venv\Scripts\Activate.ps1; python main.py"```
+   ```
+   powershell -ExecutionPolicy Bypass -Command "& .\venv\Scripts\Activate.ps1; python main.py"
+   ```
 
 ## Usage
 
